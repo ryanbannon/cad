@@ -1,0 +1,25 @@
+<h1><%= @patient.name %>: Appointment - <%= @appointment.apt_date %></h1>
+<p>
+<h2>Appointment details:</h2>
+  <p>
+  <b>Patient Name </b>
+  <%= @patient.name %>
+  </p><p>
+  <b>Appointment Date:</b>
+  <%= @appointment.apt_date %>
+  </p><p>
+  <b>Appointment time:</b>
+  <%= @appointment.apt_time %>
+  </p><p>
+  <b>Visited:</b>
+  <%= @appointment.visted %>
+  </p><p>
+  <b>Illness:</b>
+  <%= @appointment.illness %>
+  </p><p>
+  <b>Comments:</b>
+  <%= @appointment.comments %>
+  </p>
+</p>
+<%= link_to 'Edit', edit_patient_appointment_path(@patient, @appointment), class:'btn btn-default' %>
+<%= link_to 'Back', patient_appointments_path(@patient), class:'btn btn-default' %>

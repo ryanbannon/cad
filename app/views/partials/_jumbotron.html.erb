@@ -1,0 +1,15 @@
+<% if params[:controller] == 'home' %>
+    <div class="jumbotron">
+      <div class="container" style="text-align: center">
+        <% if user_signed_in? %>
+        <h2>Welcome</h2>
+        <h3><%= current_user.name %></h3>
+        <h3><%= current_user.email %></h3>
+        <h3><%= current_user.clinic %></h3>
+        <% else %>
+        <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %>
+        <% end %>
+        <%= link_to "Edit my Profile", edit_user_registration_path, class:"btn btn-primary" %>
+      </div>
+    </div>
+<% end %>

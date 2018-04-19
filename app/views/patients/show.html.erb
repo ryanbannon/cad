@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to '<< Back to All Patients', patients_path %><br />
+
+<h1>Patients Profile</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @patient.name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @patient.dob %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @patient.phone %>
+</p>
+
+<%= link_to 'Edit Profile', edit_patient_path(@patient), class: "btn btn-default" %>
+
+<h3>Appointments <%= link_to 'Show All Appointments', patient_appointments_path(@patient), class: "btn btn-default" %></h3> 
+<% @patient.appointments.each do |appointment| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>
+      <b>Name:</b>
+      <%= @patient.name %>
+      </p>
+      <b>Appointment Date:</b>
+      <%= appointment.apt_date %>
+      </p>
+      <b>Appointment time:</b>
+      <%= appointment.apt_time %>
+      </p>
+      <b>Visited:</b>
+      <%= appointment.visted %>
+      </p>
+      <p>
+      <b>Illness:</b>
+      <%= appointment.illness %>
+      </p>
+      <b>Comments:</b>
+      <%= appointment.comments %>
+      </p>
+    </div>
+  </div>
+<% end %>
+<%= @patient.appointments.inspect %>
+<%= Time.now.in_time_zone("Dublin") %>
+<% if @patient.appointments.empty? %>
+  <p><b>No appointments found</b></p>
+  <%= link_to 'New Appointment', new_patient_appointment_path(@patient), class: "btn btn-primary" %>
+<% end %>

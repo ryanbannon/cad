@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: 
+  name: MyString
+  apt_date: MyString
+  apt_time: MyString
+  visted: MyString
+  illness: MyString
+  comments: MyText
+
+two:
+  patient: 
+  name: MyString
+  apt_date: MyString
+  apt_time: MyString
+  visted: MyString
+  illness: MyString
+  comments: MyText
