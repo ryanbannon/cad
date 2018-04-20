@@ -13,7 +13,7 @@ prohibited this review from being saved:</h2>
 <div class="field">
 <p>
 <%= f.label :name %><br />
-<%= @patient.name %><br /><br/>
+<%= f.text_field :name, class: "form-control" %><br /><br/>
 <%= f.label :apt_date, "Appointment Date" %><br />
 <%= f.text_field :apt_date, class: "form-control" %><br />
 <%= f.label :apt_time, "Appointment Time" %><br />

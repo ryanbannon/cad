@@ -43,6 +43,7 @@ gem 'will_paginate'
 
 # ---- PRAWN ----
 gem 'prawn'
+gem 'prawn-table'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -25,8 +25,14 @@
 </p>
 
 <%= link_to 'Edit Profile', edit_patient_path(@patient), class: "btn btn-default" %>
+<br/><hr/>
 
-<h3>Appointments <%= link_to 'Show All Appointments', patient_appointments_path(@patient), class: "btn btn-default" %></h3> 
+<% if @patient.appointments.empty? %>
+<h3>Appointment History</h3> 
+<% end %>
+<% if !@patient.appointments.empty? %>
+<h3>Appointment History <%= link_to 'Go to Appointments', patient_appointments_path(@patient), class: "btn btn-warning" %></h3> 
+<% end %>
 <% @patient.appointments.each do |appointment| %>
   <div class="panel panel-default">
     <div class="panel-body">
@@ -34,28 +40,20 @@
       <b>Name:</b>
       <%= @patient.name %>
       </p>
+      <p>
       <b>Appointment Date:</b>
       <%= appointment.apt_date %>
-      </p>
-      <b>Appointment time:</b>
-      <%= appointment.apt_time %>
-      </p>
-      <b>Visited:</b>
-      <%= appointment.visted %>
       </p>
       <p>
       <b>Illness:</b>
       <%= appointment.illness %>
       </p>
-      <b>Comments:</b>
-      <%= appointment.comments %>
-      </p>
     </div>
   </div>
 <% end %>
-<%= @patient.appointments.inspect %>
-<%= Time.now.in_time_zone("Dublin") %>
+<!--%= @patient.appointments.inspect %>-->
+<!--%= Time.now.in_time_zone("Dublin") %>-->
 <% if @patient.appointments.empty? %>
-  <p><b>No appointments found</b></p>
+  <br/><p><b>No appointments found</b></p><br/>
   <%= link_to 'New Appointment', new_patient_appointment_path(@patient), class: "btn btn-primary" %>
 <% end %>

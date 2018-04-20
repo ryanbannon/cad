@@ -35,7 +35,7 @@
   <tbody>
     <% for appointment in @appointments %>
        <tr class="<%= cycle('odd','even') %>">
-        <td><%= @patient.name %></td>
+        <td><%= appointment.name %></td>
         <td><%= appointment.apt_date %></td>
         <td><%= appointment.apt_time %></td>
         <td><%= appointment.visted %></td>
@@ -47,14 +47,13 @@
     <% end %>
   </tbody>
 </table>
-<br />
-<!--%= link_to 'Print Report (PDF)', patient_appointments_path(@appointments, format: "pdf") %>-->
-<br />
 
 <% if @patient.appointments.empty? %>
   <p><b>No appointments found</b></p><br />
   <%= link_to 'New Appointment', new_patient_appointment_path(@patient), class: "btn btn-primary" %>
 <% else %>
+  <%= link_to 'Print Report (PDF)', patient_appointments_path(@patient, format: "pdf") %>
+  <br /><br />
   <%= link_to 'New Appointment', new_patient_appointment_path(@patient), class: "btn btn-primary" %>
 <% end %>
 

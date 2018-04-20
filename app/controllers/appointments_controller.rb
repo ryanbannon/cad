@@ -3,14 +3,17 @@ class AppointmentsController < ApplicationController
   # end
   
   def index
+    # if patient_appointments_path
     @patient = Patient.find(params[:patient_id])
     @appointments = @patient.appointments.page(params[:page]).per_page(5)
+    # else
+    # @appointments = Appointment.all.page(params[:page]).per_page(5)
+    # end
     
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = Prawn::Document.new
-        pdf.text "Hello World"
+        pdf = AppointmentsPdf.new(@patient, @appointments)
         send_data pdf.render, filename: "report_#{@patient.name}.pdf", type: "application/pdf", disposition: "inline"
       end
     end
@@ -22,6 +25,14 @@ class AppointmentsController < ApplicationController
   def show
     @patient = Patient.find(params[:patient_id])
     @appointment = @patient.appointments.find(params[:id])
+  
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = AppointmentPdf.new
+        send_data pdf.render, filename: "report_#{@patient.name}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   # def new

@@ -43,8 +43,8 @@
         <td><%= patient.dob %></td>
         <td><%= patient.address %></td>
         <td><%= patient.phone %></td>
+        <td><%= link_to 'Profile', patient, :class => "btn btn-default" %></td>
         <td><%= link_to 'Appointments', {:controller => 'appointments', :patient_id => patient.id}, :class => "btn btn-default" %></td>
-        <td><%= link_to 'Show', patient, :class => "btn btn-default" %></td>
         <td><%= link_to 'Edit', edit_patient_path(patient), :class => "btn btn-default" %></td>
         <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
       </tr>
