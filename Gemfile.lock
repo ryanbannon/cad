@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ryanbannon/ryansgem.git
+  revision: 2c525dec0b7aafeed932ff805820a36ec8925acc
+  specs:
+    ryansgem (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -176,7 +182,6 @@ GEM
       railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    ryansgem (0.1.0)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -250,7 +255,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rails_12factor
   ransack
-  ryansgem
+  ryansgem!
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
