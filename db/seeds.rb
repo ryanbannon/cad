@@ -21,3 +21,19 @@ Patient.create([{ name: 'Ryan Bannon', dob: '23/01/1997', address: 'Ashbourne, M
                 { name: 'Scarlett Hicks', dob: '04/02/1997', address: 'Ashbourne, Meath', phone: '0854288091', postcode: 'MN'},
                 { name: 'Jameson Brown', dob: '05/02/1997', address: 'Ashbourne, Meath', phone: '0864727582', postcode: 'MS'},
                 { name: 'Hilary Carver', dob: '06/02/1997', address: 'Ashbourne, Meath', phone: '0896785949', postcode: 'ME'}])
+
+Appointment.create([{ patient_id: 1, name: 'Ryan Bannon', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Sandra Durham', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "No"},
+                    { patient_id: 1, name: 'Bruno Mayer', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Claire Bass', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "No"},
+                    { patient_id: 1, name: 'Gannon Olsen', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Dane Garrison', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "No"},
+                    { patient_id: 1, name: 'Ursula Lloyd', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Kyle Terrell', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Melanie Lyons', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "No"},
+                    { patient_id: 1, name: 'Michael Carroll', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Nora Roy', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "No"},
+                    { patient_id: 1, name: 'Simon Palmer', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Scarlett Hicks', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "No"},
+                    { patient_id: 1, name: 'Jameson Brown', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "Yes"},
+                    { patient_id: 1, name: 'Hilary Carver', apt_date: '26/04/2018', apt_time: "09:00", visted: "False", illness: "Sick", comments: "sickness", hospital: "No"}])
