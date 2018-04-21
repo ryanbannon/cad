@@ -13,22 +13,25 @@ prohibited this review from being saved:</h2>
 <div class="field">
 <p>
 <%= f.label :name %><br />
-<%= f.text_field :name, class: "form-control" %><br /><br/>
+<%= f.text_field :name, value: "#{@patient.name}", class: "form-control" %><br /><br/>
 <%= f.label :apt_date, "Appointment Date" %><br />
-<%= f.text_field :apt_date, class: "form-control" %><br />
+<%= f.text_field :apt_date, class: "form-control", placeholder: "dd/mm/yyyy", value: "#{Time.now.strftime("%d/%m/%Y")}" %><br />
 <%= f.label :apt_time, "Appointment Time" %><br />
-<%= select_tag :apt_time, options_for_select([["9.00AM"], ["9.30AM"], ["10.00AM"], ["10.30AM"], ["11.00AM"], ["11.30AM"], ["12.00PM"], ["12.30PM"], 
-    ["2.00PM"], ["2.30PM"], ["3.00PM"], ["3.30PM"], ["4.00PM"], ["4.30PM"]]), include_blank: true, class: "form-control" %><br />
+<%= f.select(:apt_time,
+        options_for_select([["09:00"], ["09:30"], ["10:00"], ["10:30"], ["11:00"], ["11:30"], ["12:00"], ["12:30"],
+        ["14:00"], ["14:30"], ["15:00"], ["15:30"], ["16:00"], ["16:30"]]), {}, :class => 'form-control') %><br /><br />
 <%= f.label :visted, "Visited" %><br />
-<%= select_tag :visited, options_for_select([["False"], ["True"]]), class: "form-control" %><br />
+<%= f.select(:visted, options_for_select([["False"], ["True"]]), {}, :class => 'form-control') %><br /><br />
 <%= f.label :illness %><br />
 <%= f.text_field :illness, class: "form-control" %><br />
 <%= f.label :comments %><br />
 <%= f.text_area :comments, class: "form-control" %><br />
+<%= f.label :hospital, "Hospital request needed?" %><br />
+<%= f.select(:hospital, options_for_select([["No"], ["Yes"]]), {}, :class => 'form-control') %><br /><br />
+
 </p>
 </div>
 <div class="actions">
 <%= f.submit :Submit, class:'btn btn-success' %>
 </div>
 <% end %>
-

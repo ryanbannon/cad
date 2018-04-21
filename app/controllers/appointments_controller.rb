@@ -1,14 +1,10 @@
 class AppointmentsController < ApplicationController
-  # def index
-  # end
   
   def index
-    # if patient_appointments_path
     @patient = Patient.find(params[:patient_id])
     @appointments = @patient.appointments.page(params[:page]).per_page(5)
-    # else
-    # @appointments = Appointment.all.page(params[:page]).per_page(5)
-    # end
+    
+    # @search = @appointments.search(params[:q])
     
     respond_to do |format|
       format.html
@@ -18,33 +14,23 @@ class AppointmentsController < ApplicationController
       end
     end
   end
-
-  # def show
-  # end
   
   def show
     @patient = Patient.find(params[:patient_id])
     @appointment = @patient.appointments.find(params[:id])
-  
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = AppointmentPdf.new
-        send_data pdf.render, filename: "report_#{@patient.name}.pdf", type: "application/pdf", disposition: "inline"
-      end
+    
+    @h = @appointment.hospital.to_s
+    if @h == "Yes"
+      @gem = Ryansgem.check(@patient)
+    else
+      @gem = "Not needed"
     end
   end
-
-  # def new
-  # end
   
   def new
     @patient = Patient.find(params[:patient_id])
     @appointment = @patient.appointments.build
   end
-
-  # def edit
-  # end
   
   def edit
     @patient = Patient.find(params[:patient_id])
@@ -53,7 +39,7 @@ class AppointmentsController < ApplicationController
   
   def create
   @patient = Patient.find(params[:patient_id])
-  @appointment = @patient.appointments.build(params.require(:appointment).permit(:name, :apt_date, :apt_time, :visted, :illness, :comments))
+  @appointment = @patient.appointments.build(params.require(:appointment).permit(:name, :apt_date, :apt_time, :visted, :illness, :comments, :hospital))
     if @appointment.save
     redirect_to patient_appointment_url(@patient, @appointment)
     else
@@ -64,7 +50,7 @@ class AppointmentsController < ApplicationController
   def update
   @patient = Patient.find(params[:patient_id])
   @appointment = Appointment.find(params[:id])
-    if @appointment.update_attributes(params.require(:appointment).permit(:name, :apt_date, :apt_time, :visted, :illness, :comments))
+    if @appointment.update_attributes(params.require(:appointment).permit(:name, :apt_date, :apt_time, :visted, :illness, :comments, :hospital))
     redirect_to patient_appointment_url(@patient, @appointment)
     else
     render :action => "edit"

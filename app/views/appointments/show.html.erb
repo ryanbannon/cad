@@ -20,6 +20,10 @@
   <b>Comments:</b>
   <%= @appointment.comments %>
   </p>
+  <hr />
+  <p><h3>Hospital</h3><br />
+  <h4><%= @gem %></h4><br />
+  </p>
 </p>
-<%= link_to 'Edit', edit_patient_appointment_path(@patient, @appointment), class:'btn btn-default' %>
+<%= link_to 'Edit Appointment', edit_patient_appointment_path(@patient, @appointment), class:'btn btn-default' %>
 <%= link_to 'Back', patient_appointments_path(@patient), class:'btn btn-default' %>
