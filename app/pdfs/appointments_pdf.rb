@@ -28,9 +28,9 @@ class AppointmentsPdf < Prawn::Document
     end
     
     def line_item_rows
-        [["Name", "Appt Date", "Appt Time", "Visited", "Illness", "Comments"]] + 
+        [["Appt Date", "Appt Time", "Visited", "Illness", "Hospital?", "Comments"]] + 
         @patient.appointments.map do |item|
-            [item.name, item.apt_date, item.apt_time, item.visted, item.illness, item.comments]
+            [item.apt_date, item.apt_time, item.visted, item.illness, item.hospital, item.comments]
         end
     end
 end
