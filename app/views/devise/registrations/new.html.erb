@@ -19,6 +19,12 @@
   </div>
   
   <div class="field">
+    <% @hospitals = Hospital.all.collect(&:name) %>
+    <%= f.label :hospital, "Parent Hospital" %><br />
+    <%= f.select(:hospital, @hospitals, {}, :class => 'form-control') %>
+  </div>
+  
+  <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone, autofocus: true, autocomplete: "off", class: "form-control" %>
   </div>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hospitals</h1>
+
+<div>
+  There is <%= pluralize(Hospital.all.size, 'hospital') %>
+</div><br/>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      </tr>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hospitals.each do |hospital| %>
+      <tr class="<%= cycle('odd','even') %>">
+        <td><%= hospital.name %></td>
+        <td><%= hospital.address %></td>
+        <td><%= hospital.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
